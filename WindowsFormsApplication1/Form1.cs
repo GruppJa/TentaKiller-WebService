@@ -35,19 +35,18 @@ namespace WindowsFormsApplication1
         private void TrialsButton_Click(object sender, EventArgs e)
         {
             DataSet ds = controller.getTrials();
-            dataGridView2.DataSource = ds.Tables[0];
+            dataGridView.DataSource = ds.Tables[0];
         }
         private void StudentsButton_Click(object sender, EventArgs e)
         {
-
             DataSet ds = controller.getStudents();
-            dataGridView2.DataSource = ds.Tables[0];
+            dataGridView.DataSource = ds.Tables[0];
         }
 
         private void ExamsButton_Click(object sender, EventArgs e)
         {
             DataSet ds = controller.getExams();
-            dataGridView2.DataSource = ds.Tables[0];
+            dataGridView.DataSource = ds.Tables[0];
         }
     }
 }

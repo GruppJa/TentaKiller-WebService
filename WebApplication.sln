@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication3\WebApplication.csproj", "{7EBA9A7E-A1C8-4C29-AB0C-8E9F476D603E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{7EBA9A7E-A1C8-4C29-AB0C-8E9F476D603E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication", "WindowsFormsApplication1\WindowsFormsApplication.csproj", "{D1EE0C66-1B9E-4A26-B953-600CD749F0CC}"
 	ProjectSection(ProjectDependencies) = postProject
