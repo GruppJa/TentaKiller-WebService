@@ -25,12 +25,12 @@ namespace ConsoleApplication2
                 {
                     controller.getStudents();
                 }
-                else if (choice == "Exams") {
+                /*else if (choice == "Exams") {
                     controller.getExams();
                 }
                 else if (choice == "Trials") {
                     controller.getTrials();
-                }
+                }*/
             }
         }
     }

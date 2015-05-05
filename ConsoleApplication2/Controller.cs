@@ -13,22 +13,26 @@ namespace ConsoleApplication2
         ServiceReference.WebServiceSoapClient client = new ServiceReference.WebServiceSoapClient();
         public void getStudents()
         {
-            DataTable studentsTable = new DataTable();
+            //DataTable studentsTable = new DataTable();
 
-            DataSet ds = client.getStudents();
-            studentsTable = ds.Tables["Students"];
+            //DataSet ds = client.getStudents();
+            //studentsTable = ds.Tables["Students"];
 
-            Console.WriteLine(studentsTable.Rows.Count);
-            foreach (DataRow dataRow in studentsTable.Rows)
+            String[][] students = client.getStudents();
+
+            //Console.WriteLine(studentsTable.Rows.Count);
+            
+            foreach (String[] dataRow in students)
             {
-                foreach (var item in dataRow.ItemArray)
+                foreach (String s in dataRow)
                 {
                     Console.WriteLine();
-                    Console.WriteLine(item);
+                    Console.WriteLine(s);
                 }
+                Console.WriteLine("---------------");
             }
         }
-        public void getExams()
+        /*public void getExams()
         {
             DataTable examsTable = new DataTable();
 
@@ -44,8 +48,8 @@ namespace ConsoleApplication2
                     Console.WriteLine(item);
                 }
             }
-        }
-        public void getTrials()
+        }*/
+        /*public void getTrials()
         {
             DataTable trialsTable = new DataTable();
 
@@ -61,6 +65,6 @@ namespace ConsoleApplication2
                     Console.WriteLine(item);
                 }
             }
-        }
+        }*/
     }
 }

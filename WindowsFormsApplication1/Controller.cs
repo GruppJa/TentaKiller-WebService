@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
     class Controller
     {
         ServiceReference.WebServiceSoapClient service = new ServiceReference.WebServiceSoapClient();
-        public object[] getStudents()
+        public String[][] getStudents()
         {
             return service.getStudents();
         }
@@ -18,9 +18,9 @@ namespace WindowsFormsApplication1
         {
             return service.getExams();  
         }
-        public DataSet getTrials()
+        /*public DataSet getTrials()
         {
             return service.getTrials();
-        }
+        }*/
     }
 }

@@ -34,15 +34,21 @@ namespace WindowsFormsApplication1
         }
         private void TrialsButton_Click(object sender, EventArgs e)
         {
-            DataSet ds = controller.getTrials();
-            dataGridView.DataSource = ds.Tables[0];
+            //DataSet ds = controller.getTrials();
+            //dataGridView.DataSource = ds.Tables[0];
         }
         private void StudentsButton_Click(object sender, EventArgs e)
         {
-            DataSet ds = controller.getStudents();
-            dataGridView.DataSource = ds.Tables[0];
+            dataGridView.Rows.Clear();
+            dataGridView.ColumnCount = 3;
+            dataGridView.Columns[0].Name = "Id";
+            dataGridView.Columns[1].Name = "Name";
+            dataGridView.Columns[2].Name = "Email";
+            String[][] ds = controller.getStudents();
+            for (int i = 0; i < ds.Length; i++) { 
+                dataGridView.Rows.Add(ds[i]);
+            }
         }
-
         private void ExamsButton_Click(object sender, EventArgs e)
         {
             DataSet ds = controller.getExams();

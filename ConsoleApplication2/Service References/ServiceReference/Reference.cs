@@ -16,12 +16,13 @@ namespace ConsoleApplication2.ServiceReference {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://tentakiller.org/show", ConfigurationName="ServiceReference.WebServiceSoap")]
     public interface WebServiceSoap {
         
+        // CODEGEN: Parameter 'getStudentsResult' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlArrayItemAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getStudents", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet getStudents();
+        ConsoleApplication2.ServiceReference.getStudentsResponse getStudents(ConsoleApplication2.ServiceReference.getStudentsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getStudents", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataSet> getStudentsAsync();
+        System.Threading.Tasks.Task<ConsoleApplication2.ServiceReference.getStudentsResponse> getStudentsAsync(ConsoleApplication2.ServiceReference.getStudentsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getExams", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -29,13 +30,35 @@ namespace ConsoleApplication2.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getExams", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataSet> getExamsAsync();
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getStudents", WrapperNamespace="http://tentakiller.org/show", IsWrapped=true)]
+    public partial class getStudentsRequest {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getTrials", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet getTrials();
+        public getStudentsRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getStudentsResponse", WrapperNamespace="http://tentakiller.org/show", IsWrapped=true)]
+    public partial class getStudentsResponse {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tentakiller.org/show/getTrials", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataSet> getTrialsAsync();
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tentakiller.org/show", Order=0)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ArrayOfString")]
+        [System.Xml.Serialization.XmlArrayItemAttribute(NestingLevel=1)]
+        public string[][] getStudentsResult;
+        
+        public getStudentsResponse() {
+        }
+        
+        public getStudentsResponse(string[][] getStudentsResult) {
+            this.getStudentsResult = getStudentsResult;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -65,12 +88,25 @@ namespace ConsoleApplication2.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Data.DataSet getStudents() {
-            return base.Channel.getStudents();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ConsoleApplication2.ServiceReference.getStudentsResponse ConsoleApplication2.ServiceReference.WebServiceSoap.getStudents(ConsoleApplication2.ServiceReference.getStudentsRequest request) {
+            return base.Channel.getStudents(request);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataSet> getStudentsAsync() {
-            return base.Channel.getStudentsAsync();
+        public string[][] getStudents() {
+            ConsoleApplication2.ServiceReference.getStudentsRequest inValue = new ConsoleApplication2.ServiceReference.getStudentsRequest();
+            ConsoleApplication2.ServiceReference.getStudentsResponse retVal = ((ConsoleApplication2.ServiceReference.WebServiceSoap)(this)).getStudents(inValue);
+            return retVal.getStudentsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ConsoleApplication2.ServiceReference.getStudentsResponse> ConsoleApplication2.ServiceReference.WebServiceSoap.getStudentsAsync(ConsoleApplication2.ServiceReference.getStudentsRequest request) {
+            return base.Channel.getStudentsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleApplication2.ServiceReference.getStudentsResponse> getStudentsAsync() {
+            ConsoleApplication2.ServiceReference.getStudentsRequest inValue = new ConsoleApplication2.ServiceReference.getStudentsRequest();
+            return ((ConsoleApplication2.ServiceReference.WebServiceSoap)(this)).getStudentsAsync(inValue);
         }
         
         public System.Data.DataSet getExams() {
@@ -79,14 +115,6 @@ namespace ConsoleApplication2.ServiceReference {
         
         public System.Threading.Tasks.Task<System.Data.DataSet> getExamsAsync() {
             return base.Channel.getExamsAsync();
-        }
-        
-        public System.Data.DataSet getTrials() {
-            return base.Channel.getTrials();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataSet> getTrialsAsync() {
-            return base.Channel.getTrialsAsync();
         }
     }
 }
